@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"helper"
 	"math"
 )
 
@@ -12,7 +13,7 @@ func main() {
 
 	for i := int(math.Sqrt(float64(num))); i >= 1; i-- {
 		fmt.Println(i)
-		if isPrime(i) {
+		if helper.IsPrime(i) {
 			if num%i == 0 && i > largest_prime {
 				largest_prime = i
 				fmt.Println("set largest_prime to ", largest_prime)
@@ -20,14 +21,4 @@ func main() {
 		}
 	}
 	fmt.Println(largest_prime)
-}
-
-func isPrime(n int) bool {
-	// implement primality test
-	for i := 2; i <= int(math.Sqrt(float64(n))); i++ {
-		if n%i == 0 {
-			return false
-		}
-	}
-	return true
 }
